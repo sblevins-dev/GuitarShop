@@ -10,7 +10,7 @@ export default function FeaturedGrid() {
             <div className='rounded-lg flex-1 overflow-clip max-w-[500px]'>
                 <Image
                     src={fAcoustic}
-                    objectFit='cover'
+                    
                     className='w-full h-full'
                     alt="acoustic guitar"
                 />
@@ -19,7 +19,7 @@ export default function FeaturedGrid() {
                 <div className='rounded-lg overflow-clip flex-1'>
                     <Image
                         src={fPlug}
-                        objectFit='cover'
+                        
                         className='w-full h-full'
                         alt="acoustic guitar"
                     />
@@ -27,7 +27,7 @@ export default function FeaturedGrid() {
                 <div className='rounded-lg overflow-clip flex-1'>
                     <Image
                         src={fDessert}
-                        objectFit='cover'
+                        
                         className='w-full h-full'
                         alt="acoustic guitar"
                     />

@@ -15,9 +15,10 @@ export default function Card({
     }
 }) {
     return (
-        <div className="rounded-lg w-auto max-w-[300px] shadow-xl border border-gray-100 p-4">
+        <div className="rounded-lg w-auto max-w-[300px] min-w-[300px] shadow-xl border border-gray-100 p-4">
             <Image
                 src={guitarImg}
+                priority={true}
                 alt="guitar"
                 className="w-full h-full mb-2"
             />
