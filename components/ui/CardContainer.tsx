@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react'
 import Card from './Card'
-import { InfiniteMovingCards } from './infinite-moving-cards'
+import { staticData } from '@public/data/data';
 
 export default function CardContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -43,48 +43,3 @@ export default function CardContainer() {
 
     )
 }
-
-const staticData = [
-    {
-        id: 1,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    },
-    {
-        id: 2,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    },
-    {
-        id: 3,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    },
-    {
-        id: 4,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    },
-    {
-        id: 5,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    },
-    {
-        id: 6,
-        img: "guitar",
-        title: "Stratocaster",
-        description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor, deleniti?",
-        price: "189.99"
-    }
-]
