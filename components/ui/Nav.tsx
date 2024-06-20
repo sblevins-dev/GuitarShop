@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Nav() {
   return (
-    <div className='text-black flex justify-between bg-transparent p-4 absolute z-10 w-full xl:px-96'>
+    <div className='text-black flex justify-between bg-transparent p-4 absolute z-10 w-full 2xl:px-96'>
       <h1 className='uppercase font-bold'>
         The Guitar Shop
       </h1>

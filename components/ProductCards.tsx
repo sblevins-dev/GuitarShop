@@ -14,7 +14,7 @@ export default function ProductCards() {
 
     return (
         <div
-            className='flex gap-10 w-full flex-wrap'
+            className='flex gap-10 w-full flex-wrap items-center justify-center'
         >
             {staticData.map(guitar => (
                 <div key={guitar.id} onClick={() => handleClick(guitar.id)} className='cursor-pointer'>

@@ -21,7 +21,7 @@ export default function CardContainer() {
     };
 
     return (
-        <div className='p-28 py-10 flex flex-col relative max-w-[1500px] lg:m-auto'>
+        <div className='md:p-28 py-10 p-5 sm:p-10 flex flex-col relative max-w-[1500px] w-full lg:m-auto'>
             <div className='flex justify-between'>
                 <h1 className='font-bold text-2xl'>
                     Popular
@@ -30,7 +30,7 @@ export default function CardContainer() {
                     <button className='text-center bg-black text-white rounded-lg py-2 px-4 font-medium shadow-lg'>See More</button>
                 </div>
             </div>
-            <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full relative '>
+            <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full'>
 
                 {staticData.map((guitar) => (
                     <div key={guitar.id} className="">
