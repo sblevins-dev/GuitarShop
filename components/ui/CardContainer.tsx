@@ -3,9 +3,12 @@
 import React, { useState } from 'react'
 import Card from './Card'
 import { staticData } from '@public/data/data';
+import { useRouter } from 'next/navigation';
 
 export default function CardContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    const router = useRouter();
 
 
     const nextSlide = () => {
@@ -20,6 +23,10 @@ export default function CardContainer() {
         );
     };
 
+    const handleClick = (id : number) => {
+        router.push(`/products/${id}`)
+    }
+
     return (
         <div className='md:p-28 py-10 p-5 sm:p-10 flex flex-col relative max-w-[1500px] w-full lg:m-auto'>
             <div className='flex justify-between'>
@@ -33,7 +40,7 @@ export default function CardContainer() {
             <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full'>
 
                 {staticData.map((guitar) => (
-                    <div key={guitar.id} className="">
+                    <div key={guitar.id} className="" onClick={() => handleClick(guitar.id)}>
                         <Card key={guitar.id} guitar={guitar} />
                     </div>
 

@@ -14,7 +14,7 @@ export default function page({
     const guitar = staticData.find(product => product.id == params.productId)
 
     return (
-        <div className='h-screen bg-white py-10 p-5 text-black pt-24 items-center flex flex-col justify-center gap-24'>
+        <div className='h-screen bg-[#fbfbfb] py-10 p-5 text-black pt-24 items-center flex flex-col justify-center gap-24'>
             <div className='flex gap-6 items-center flex-wrap justify-center'>
                 <div className='flex flex-col gap-2'>
                     <h1 className='font-semibold text-md'>

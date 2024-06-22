@@ -7,7 +7,7 @@ import Image from 'next/image'
 
 export default function Footer() {
   return (
-    <div className='md:p-28 p-5 py-10 bg-white text-black flex flex-wrap justify-between md:items-end items-start xl:px-96 gap-10'>
+    <div className='md:px-28 p-5 py-10 bg-white text-black flex flex-wrap justify-between md:items-end items-start xl:px-96 gap-10'>
       <div className='flex flex-col flex-wrap justify-between gap-4 items-center'>
         <h1 className='uppercase font-bold'>
             The Guitar Shop

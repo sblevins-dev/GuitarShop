@@ -15,7 +15,7 @@ export default function Card({
     }
 }) {
     return (
-        <div className="bg-white rounded-lg w-auto max-w-[300px] min-w-[300px] shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 p-4">
+        <div className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full min-w-[300px] shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 p-4">
             <Image
                 src={guitarImg}
                 priority={true}
@@ -31,7 +31,7 @@ export default function Card({
                 <p className="text-right font-medium">
                     ${guitar.price}
                 </p>
-                <p className="text-sm">
+                <p className="text-sm font-medium">
                     {guitar.description}
                 </p>
             </div>
@@ -41,7 +41,7 @@ export default function Card({
                 border hover:border-black"
             >
                 Add to Cart
-                </button>
+            </button>
 
         </div>
     )
