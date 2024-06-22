@@ -26,6 +26,11 @@ body {
     rgb(var(--background-start-rgb));
 }
 
+.active {
+  text-decoration: black 2px underline;
+  text-underline-offset: 5px;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
