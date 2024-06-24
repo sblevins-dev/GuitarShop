@@ -11,7 +11,7 @@ export default function page({
     params: { productId: number }
 }) {
 
-    const guitar = staticData.find(product => product.id == params.productId)
+    const guitar = staticData.find((product: { id: number }) => product.id == params.productId)
 
     return (
         <div className='h-screen bg-[#fbfbfb] py-10 p-5 text-black pt-24 items-center flex flex-col justify-center gap-24'>
@@ -30,11 +30,11 @@ export default function page({
                 <div
                     className='w-[300px] h-auto'
                 >
-                    {guitar && <Image
+                    {/* {guitar && <Image
                         src={guitarImg}
                         alt={guitar.img}
                         className='w-auto h-full'
-                    />}
+                    />} */}
 
                 </div>
             </div>

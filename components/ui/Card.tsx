@@ -10,12 +10,22 @@ export default function Card({
         id: number;
         title: string;
         description: string;
-        img: string;
-        price: string;
+        price: string | null;
+        salePrice: string | null;
     }
 }) {
+
+    const shortenedTitle = guitar.title.split(' ').slice(0, 7).join(' ');
+
+    const shortenedDesc = guitar.description.split(' ').slice(0, 7).join(' ') + '...';
+
+    console.log(shortenedDesc)
+
     return (
-        <div className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full min-w-[300px] shadow-xl hover:shadow-2xl transition duration-300 border border-gray-100 p-4">
+        <div 
+        className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
+        min-w-[300px] min-h-[500px] shadow-xl hover:shadow-2xl transition duration-300 border 
+        border-gray-100 p-4 flex flex-col gap-1">
             <Image
                 src={guitarImg}
                 priority={true}
@@ -25,14 +35,20 @@ export default function Card({
             <div
                 className="w-full flex flex-col gap-1"
             >
-                <h2 className="font-bold text-right">
-                    {guitar.title}
+                <h2 className="font-bold text-right text-sm min-h-[40px]">
+                    {shortenedTitle}
                 </h2>
-                <p className="text-right font-medium">
-                    ${guitar.price}
+                <p className="text-right font-medium justify-end gap-2 flex">
+                    <span className="text-red-500 line-through">
+                        {guitar.salePrice !== null && `$${guitar.salePrice}`}
+                    </span>
+                    <span>
+                       ${guitar.price} 
+                    </span>
+                    
                 </p>
-                <p className="text-sm font-medium">
-                    {guitar.description}
+                <p className="text-sm font-medium min-h-[40px] max-h-[40px] overflow-hidden">
+                    {shortenedDesc}
                 </p>
             </div>
             <button type="button"
