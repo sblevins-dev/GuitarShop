@@ -1,6 +1,7 @@
 import guitar from "@public/assets/images/guitar2.png"
 import Image from "next/image"
 import esp from "@public/assets/images/esp.png"
+import { TextGenerateEffect } from "./TextGenerateEffect"
 
 export default function Hero() {
     return (
@@ -12,29 +13,44 @@ export default function Hero() {
 
             <div
                 className='flex flex-1 flex-col flex-wrap gap-4 items-end max-sm:justify-center relative min-w-[500px] 
-                max-sm:min-w-full pr-60 2xl:pr-[800px] max-sm:pr-0 max-sm:max-w-full 2xl:w-full'>
+                max-sm:min-w-full pr-60 2xl:pr-[900px] xl:pr-[400px] max-sm:pr-0 max-sm:max-w-full 2xl:w-full'>
 
-                <h1
+                {/* <h1
                     className='font-extrabold text-4xl sm:text-4xl md:text-7xl text-right font-serif'>
                     ESP LTD
-                </h1>
+                </h1> */}
+                <TextGenerateEffect
+                        className='font-extrabold text-4xl sm:text-4xl md:text-7xl text-right font-serif text-black'
+                        words="ESP LTD"
+                        delay={0.2}
+                    />
                 <div
-                    className='flex-2 flex flex-col text-right sm:text-5xl text-2xl font-semibold 
+                    className='flex-2 flex flex-col gap-1 text-right sm:text-5xl text-2xl font-semibold 
                 font-serif w-auto'>
-                    <span>$1499.99</span>
-                    <span
+                    <TextGenerateEffect
+                        className=''
+                        words=" $1499.99"
+                        delay={0.5}
+                    />
+                    <TextGenerateEffect
+                        className='font-semibold text-gray-400 line-through sm:text-2xl text-xl font-serif'
+                        words=" $1699.99"
+                        delay={0.7}
+                    />
+                    {/* <span
                         className='font-semibold text-gray-400 line-through sm:text-2xl text-xl font-serif'>
                         $1699.99
-                    </span>
+                    </span> */}
                 </div>
-                <p 
+                <TextGenerateEffect
                 className='bg-transparent font-semibold text-right text-sm md:text-sm 
-                min-w-[200px] w-full max-sm:w-full xl:pl-10 pl-0 max-w-[800px] h-max'>
-                    The ESP LTD James Hetfield Snakebyte Electric Guitar is Metallica frontman
+                min-w-[200px] w-full max-sm:w-full xl:pl-10 pl-0 max-w-[800px] h-max'
+                words="The ESP LTD James Hetfield Snakebyte Electric Guitar is Metallica frontman
                     James Hetfield&apos;s weapon of choice. This modified EX shape guitar features a
                     mahogany body and 3-piece mahogany neck for huge tones suited for the heaviest
-                    of metal.
-                </p>
+                    of metal."
+                delay={0.1}
+                />
             </div>
 
             <div

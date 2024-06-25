@@ -8,6 +8,8 @@ import { useRouter } from 'next/navigation';
 export default function CardContainer() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
+    const delayIncrement = 500;
+
     const router = useRouter();
 
 
@@ -41,9 +43,9 @@ export default function CardContainer() {
             </div>
             <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full'>
 
-                {popularItems.map((guitar) => (
+                {popularItems.map((guitar, idx) => (
                     <div key={guitar.id} className="" onClick={() => handleClick(guitar.id)}>
-                        <Card key={guitar.id} guitar={guitar} />
+                        <Card key={guitar.id} guitar={guitar} delay={idx * delayIncrement} />
                     </div>
 
                 ))}

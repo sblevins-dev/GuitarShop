@@ -1,12 +1,14 @@
 "use client"
 
 import { useCart } from "@context/GlobalContext"
+import useIntersectionObserver from "@hooks/IntersectionObserver"
 import guitarImg from "@public/assets/images/guitar2.png"
 import { images } from "@public/assets/images/index"
 import Image, { StaticImageData } from "next/image"
 
 export default function Card({
-    guitar
+    guitar,
+    delay
 }: {
     guitar: {
         id: number;
@@ -15,8 +17,14 @@ export default function Card({
         price: string;
         salePrice: string | null;
         img: StaticImageData;
-    }
+    },
+    delay: number;
 }) {
+
+    const [ref, isVisible] = useIntersectionObserver({
+        threshold: 0.01,
+        freezeOnceVisible: true,
+    })
 
     const shortenedTitle = guitar.title.split(' ').slice(0, 7).join(' ');
 
@@ -30,9 +38,11 @@ export default function Card({
 
     return (
         <div
-            className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
+            ref={ref}
+            style={{ transitionDelay: `${delay}ms`}}
+            className={`cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
         min-w-[300px] max-sm:min-w-full min-h-[500px] shadow-xl hover:shadow-2xl transition duration-300 border 
-        border-gray-100 p-4 flex flex-col gap-1">
+        border-gray-100 p-4 flex flex-col gap-1 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
             {
                 guitar.img &&
                 <Image
