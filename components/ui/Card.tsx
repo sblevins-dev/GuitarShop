@@ -1,7 +1,8 @@
 "use client"
 
 import guitarImg from "@public/assets/images/guitar2.png"
-import Image from "next/image"
+import { images } from "@public/assets/images/index"
+import Image, { StaticImageData } from "next/image"
 
 export default function Card({
     guitar
@@ -12,6 +13,7 @@ export default function Card({
         description: string;
         price: string | null;
         salePrice: string | null;
+        img?: StaticImageData;
     }
 }) {
 
@@ -19,19 +21,21 @@ export default function Card({
 
     const shortenedDesc = guitar.description.split(' ').slice(0, 7).join(' ') + '...';
 
-    console.log(shortenedDesc)
-
     return (
-        <div 
-        className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
+        <div
+            className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
         min-w-[300px] min-h-[500px] shadow-xl hover:shadow-2xl transition duration-300 border 
         border-gray-100 p-4 flex flex-col gap-1">
-            <Image
-                src={guitarImg}
-                priority={true}
-                alt="guitar"
-                className="w-full h-full mb-2"
-            />
+            {
+                guitar.img &&
+                <Image
+                    src={guitar.img}
+                    priority={true}
+                    alt="guitar"
+                    className="w-full h-full mb-2"
+                />
+            }
+
             <div
                 className="w-full flex flex-col gap-1"
             >
@@ -43,9 +47,9 @@ export default function Card({
                         {guitar.salePrice !== null && `$${guitar.salePrice}`}
                     </span>
                     <span>
-                       ${guitar.price} 
+                        ${guitar.price}
                     </span>
-                    
+
                 </p>
                 <p className="text-sm font-medium min-h-[40px] max-h-[40px] overflow-hidden">
                     {shortenedDesc}
