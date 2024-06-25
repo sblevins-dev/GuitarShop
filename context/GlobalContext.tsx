@@ -58,12 +58,15 @@ interface ContextProviderProps {
 
 export const MyContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
     const [cart, dispatch] = useReducer(cartReducer, [], () => {
-        const savedCart = localStorage.getItem('cart');
+        const savedCart = typeof window !== 'undefined' ? localStorage.getItem('cart') : null;
         return savedCart ? JSON.parse(savedCart) : [];
     });
 
     useEffect(() => {
-        localStorage.setItem('cart', JSON.stringify(cart));
+        if (typeof window !== 'undefined') {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
+        
     }, [cart])
 
     const addItem = (item: CartItem) => {
