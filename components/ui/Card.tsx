@@ -31,7 +31,7 @@ export default function Card({
     return (
         <div
             className="cursor-pointer bg-white rounded-lg w-auto max-w-[300px] max-sm:max-w-full 
-        min-w-[300px] min-h-[500px] shadow-xl hover:shadow-2xl transition duration-300 border 
+        min-w-[300px] max-sm:min-w-full min-h-[500px] shadow-xl hover:shadow-2xl transition duration-300 border 
         border-gray-100 p-4 flex flex-col gap-1">
             {
                 guitar.img &&
