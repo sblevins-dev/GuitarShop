@@ -1,14 +1,17 @@
 "use client"
 
 import Link from "next/link"
-import cart from "@public/assets/icons/cart.png"
+import cartIcon from "@public/assets/icons/cart.png"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import hamburger from "@public/assets/icons/hamburger.png"
 import { useEffect, useState } from "react"
+import { useCart } from "@context/GlobalContext"
 
 export default function Nav() {
   const pathName = usePathname();
+
+  const { cart } = useCart();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -50,10 +53,15 @@ export default function Nav() {
         <button type="button" className="bg-black font-medium rounded-lg text-white px-2 py-0.5 transition-all duration-300 border hover:border-black hover:bg-white hover:text-black">
           Login
         </button>
-        <div className="h-max hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer">
+        <div className="h-max hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer relative">
+          {cart.length > 0 &&
+            <div className="absolute -top-2 -right-2 bg-black text-white w-[20px] h-[20px] rounded-full flex items-center justify-center text-xs">
+              {cart.length}
+            </div>
+          }
           <Link href={'/cart'}>
             <Image
-              src={cart}
+              src={cartIcon}
               alt="cart"
               className="w-auto h-[20px]"
             />
@@ -91,8 +99,13 @@ export default function Nav() {
                 {item.title}
               </Link>
             ))}
-            <Link href="/cart" className={`cursor-pointer font-medium ${pathName == '/cart' && 'active'}`}>
+            <Link href="/cart" className={`cursor-pointer font-medium flex justify-between items-center ${pathName == '/cart' && 'active'}`}>
               Cart
+              {cart.length > 0 &&
+                <div className=" bg-black text-white w-[20px] h-[20px] rounded-full flex items-center justify-center text-xs">
+                  {cart.length}
+                </div>
+              }
             </Link>
           </div>
         </div>

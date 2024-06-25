@@ -25,7 +25,7 @@ export default function Cart() {
     };
 
     return (
-        <div className='min-h-screen py-20 p-5 md:p-28 xl:px-96 bg-[#fbfbfb] text-black flex flex-col gap-10'>
+        <div className='min-h-screen py-20 p-5 md:p-28 2xl:px-96 bg-[#fbfbfb] text-black flex flex-col gap-10'>
             <h1 className='font-bold text-4xl'>
                 Cart
             </h1>
