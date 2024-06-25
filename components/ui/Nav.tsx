@@ -28,6 +28,8 @@ export default function Nav() {
     }
   }, [isMenuOpen])
 
+
+
   return (
     <div className='text-black flex justify-between items-center bg-transparent p-4 absolute z-10 w-full 2xl:px-96 max-sm:fixed max-sm:bg-white max-sm:shadow-lg'>
       <h1 className='uppercase font-bold'>
@@ -49,11 +51,14 @@ export default function Nav() {
           Login
         </button>
         <div className="h-max hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer">
-          <Image
-            src={cart}
-            alt="cart"
-            className="w-auto h-[20px]"
-          />
+          <Link href={'/cart'}>
+            <Image
+              src={cart}
+              alt="cart"
+              className="w-auto h-[20px]"
+            />
+          </Link>
+
         </div>
 
       </div>

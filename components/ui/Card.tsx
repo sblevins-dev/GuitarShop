@@ -1,5 +1,6 @@
 "use client"
 
+import { useCart } from "@context/GlobalContext"
 import guitarImg from "@public/assets/images/guitar2.png"
 import { images } from "@public/assets/images/index"
 import Image, { StaticImageData } from "next/image"
@@ -11,15 +12,21 @@ export default function Card({
         id: number;
         title: string;
         description: string;
-        price: string | null;
+        price: string;
         salePrice: string | null;
-        img?: StaticImageData;
+        img: StaticImageData;
     }
 }) {
 
     const shortenedTitle = guitar.title.split(' ').slice(0, 7).join(' ');
 
     const shortenedDesc = guitar.description.split(' ').slice(0, 7).join(' ') + '...';
+
+    const { cart, addItem } = useCart();
+
+    const handleAddToCart = () => {
+        addItem({ ...guitar, quantity: 1 });
+    }
 
     return (
         <div
@@ -55,10 +62,12 @@ export default function Card({
                     {shortenedDesc}
                 </p>
             </div>
-            <button type="button"
+            <button
+                type="button"
                 className="font-semibold transition-all duration-300 bg-black text-white 
                 p-2 rounded-lg w-full mt-4 hover:shadow-2xl hover:bg-white hover:text-black 
                 border hover:border-black"
+                onClick={handleAddToCart}
             >
                 Add to Cart
             </button>

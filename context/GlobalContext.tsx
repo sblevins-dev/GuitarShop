@@ -1,13 +1,13 @@
 "use client"
 
 import { StaticImageData } from "next/image";
-import React, { createContext, useContext, useReducer, useState } from "react";
+import React, { createContext, useContext, useEffect, useReducer, useState } from "react";
 
 export interface CartItem {
     id: number;
     title: string;
     price: string;
-    salePrice: string;
+    salePrice: string | null;
     description: string;
     img: StaticImageData;
     quantity: number;
@@ -17,6 +17,7 @@ interface MyContextType {
     cart: CartItem[];
     addItem: (item: CartItem) => void;
     removeItem: (itemId: number) => void;
+    clearCart: () => void;
 }
 
 const MyContext = createContext<MyContextType | undefined>(undefined);
@@ -24,6 +25,7 @@ const MyContext = createContext<MyContextType | undefined>(undefined);
 type Action =
     | { type: 'ADD_TO_CART'; payload: CartItem }
     | { type: 'REMOVE_FROM_CART'; payload: number }
+    | { type: 'CLEAR_CART' };
 
 const cartReducer = (state: CartItem[], action: Action): CartItem[] => {
     switch (action.type) {
@@ -41,6 +43,9 @@ const cartReducer = (state: CartItem[], action: Action): CartItem[] => {
         case 'REMOVE_FROM_CART':
             return state.filter(item => item.id !== action.payload);
 
+        case 'CLEAR_CART':
+            return [];
+
         default:
             return state;
     }
@@ -49,21 +54,32 @@ const cartReducer = (state: CartItem[], action: Action): CartItem[] => {
 // Create the provider component
 interface ContextProviderProps {
     children: React.ReactNode; // Define children prop explicitly
-  }
+}
 
 export const MyContextProvider: React.FC<ContextProviderProps> = ({ children }) => {
-    const [cart, dispatch] = useReducer(cartReducer, []);
+    const [cart, dispatch] = useReducer(cartReducer, [], () => {
+        const savedCart = localStorage.getItem('cart');
+        return savedCart ? JSON.parse(savedCart) : [];
+    });
 
-  const addItem = (item: CartItem) => {
-    dispatch({ type: 'ADD_TO_CART', payload: item });
-  };
+    useEffect(() => {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }, [cart])
 
-  const removeItem = (itemId: number) => {
-    dispatch({ type: 'REMOVE_FROM_CART', payload: itemId });
-  };
+    const addItem = (item: CartItem) => {
+        dispatch({ type: 'ADD_TO_CART', payload: item });
+    };
+
+    const removeItem = (itemId: number) => {
+        dispatch({ type: 'REMOVE_FROM_CART', payload: itemId });
+    };
+
+    const clearCart = () => {
+        dispatch({ type: 'CLEAR_CART' });
+    }
 
     return (
-        <MyContext.Provider value={{ cart, addItem, removeItem }}>
+        <MyContext.Provider value={{ cart, addItem, removeItem, clearCart }}>
             {children}
         </MyContext.Provider>
     );
@@ -72,7 +88,7 @@ export const MyContextProvider: React.FC<ContextProviderProps> = ({ children }) 
 export const useCart = (): MyContextType => {
     const context = useContext(MyContext);
     if (!context) {
-      throw new Error('useCart must be used within a CartProvider');
+        throw new Error('useCart must be used within a CartProvider');
     }
     return context;
-  };
+};
