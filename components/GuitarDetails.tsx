@@ -5,15 +5,14 @@ import Image from 'next/image';
 import React, { useEffect } from 'react'
 import NextButton from './ui/NextButton';
 import { useRouter } from 'next/navigation';
-import { generateStaticParams } from '@utils/generateStaticParams';
 
-export default function GuitarDetails({ params }: {
-    params: { productId: number }
+export default function GuitarDetails({ prodId }: {
+    prodId: number
 }) {
 
     const router = useRouter();
 
-    const gui = staticData.find(product => product.id === Number(params.productId));
+    const gui = staticData.find(product => product.id === Number(prodId));
 
     useEffect(() => {
         if (!gui) {
@@ -88,5 +87,3 @@ export default function GuitarDetails({ params }: {
         </div>
     )
 }
-
-export { generateStaticParams }
