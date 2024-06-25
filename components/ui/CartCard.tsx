@@ -30,7 +30,10 @@ export default function CartCard({ guitar }: {
                 />
             </div>
             <div className='font-medium w-20'>
-                ${guitar.price}
+                {parseFloat(guitar.price).toLocaleString('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                })}
             </div>
             <div
                 className='p-2 cursor-pointer'

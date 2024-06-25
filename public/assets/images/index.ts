@@ -18,6 +18,14 @@ import martin1 from "./martin1.jpg"
 import prs from "./prs.jpg"
 import schecter from "./schecter.jpg"
 import yamaha1 from "./yamaha1.jpg"
+import martinBirdseye from "./martinBirdseye.jpg"
+import martin2 from "./martin2.jpg"
+import gibson2 from "./gibson2.jpg"
+import gibson3 from "./gibson3.jpg"
+import gibson4 from "./gibson4.jpg"
+import gibson5 from "./gibson5.jpg"
+import gibson6 from "./gibson6.jpg"
+import fender5 from "./fender5.jpg"
 
 export const images = {
     epiphone1,
@@ -39,5 +47,13 @@ export const images = {
     martin1,
     prs,
     schecter,
-    yamaha1
+    yamaha1,
+    martinBirdseye,
+    martin2,
+    gibson2,
+    gibson3,
+    gibson4,
+    gibson5,
+    gibson6,
+    fender5
 }

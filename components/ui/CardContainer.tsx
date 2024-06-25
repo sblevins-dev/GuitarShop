@@ -25,8 +25,12 @@ export default function CardContainer() {
         );
     };
 
-    const handleClick = (id : number) => {
+    const handleClick = (id: number) => {
         router.push(`/products/${id}`)
+    }
+
+    const handleProductPageLinkClick = () => {
+        router.push('/products');
     }
 
     const popularItems = staticData.slice(0, 3);
@@ -38,7 +42,12 @@ export default function CardContainer() {
                     Popular
                 </h1>
                 <div className='flex-end mb-10  text-center'>
-                    <button className='text-center bg-black text-white rounded-lg py-2 px-4 font-medium shadow-lg'>See More</button>
+                    <button
+                        className='text-center bg-black text-white rounded-lg py-2 px-4 font-medium shadow-lg hover:bg-gray-200 hover:text-black hover:shadow-xl'
+                        onClick={handleProductPageLinkClick}
+                        >
+                        See More
+                    </button>
                 </div>
             </div>
             <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full'>

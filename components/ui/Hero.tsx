@@ -10,7 +10,7 @@ export default function Hero() {
          max-sm:px-5 md:px-20 3xl:px-96 px-5 flex flex-row max-sm:flex-col justify-center 
         flex-wrap pt-36 max-sm:pt-10 py-20 max-sm:py-5 relative'>
 
-
+            
             <div
                 className='flex flex-1 flex-col flex-wrap gap-4 items-end max-sm:justify-center relative min-w-[500px] 
                 max-sm:min-w-full pr-60 2xl:pr-[900px] xl:pr-[400px] max-sm:pr-0 max-sm:max-w-full 2xl:w-full'>

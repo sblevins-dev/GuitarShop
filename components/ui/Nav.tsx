@@ -50,7 +50,7 @@ export default function Nav() {
       <div className="flex items-center justify-center gap-4 max-sm:hidden">
         <div className="min-w-[50px]">
         </div>
-        <button type="button" className="bg-black font-medium rounded-lg text-white px-2 py-0.5 transition-all duration-300 border hover:border-black hover:bg-white hover:text-black">
+        <button type="button" className="bg-black hover:bg-gray-200 hover:shadow-xl hover:text-black font-medium rounded-lg text-white px-2 py-0.5 transition-all duration-300">
           Login
         </button>
 
