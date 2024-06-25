@@ -6,7 +6,7 @@ export default function Hero() {
     return (
         <div
             className=' md:max-h-[100vh] max-w-[100vw] w-full h-screen max-sm:min-h-full overflow-hidden 
-         max-sm:px-5 md:px-20 2xl:px-96 px-5 flex flex-row max-sm:flex-col justify-center 
+         max-sm:px-5 md:px-20 3xl:px-96 px-5 flex flex-row max-sm:flex-col justify-center 
         flex-wrap pt-36 max-sm:pt-10 py-20 max-sm:py-5 relative'>
 
 
