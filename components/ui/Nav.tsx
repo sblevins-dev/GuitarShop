@@ -91,6 +91,9 @@ export default function Nav() {
                 {item.title}
               </Link>
             ))}
+            <Link href="/cart" className={`cursor-pointer font-medium ${pathName == '/cart' && 'active'}`}>
+              Cart
+            </Link>
           </div>
         </div>
       }

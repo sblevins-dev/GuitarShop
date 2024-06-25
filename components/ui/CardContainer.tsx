@@ -27,6 +27,8 @@ export default function CardContainer() {
         router.push(`/products/${id}`)
     }
 
+    const popularItems = staticData.slice(0, 3);
+
     return (
         <div className='md:p-28 py-10 p-5 sm:p-10 flex flex-col relative max-w-[1500px] w-full lg:m-auto'>
             <div className='flex justify-between'>
@@ -39,7 +41,7 @@ export default function CardContainer() {
             </div>
             <div className='flex gap-x-10 gap-y-20 flex-wrap justify-center items-center w-full'>
 
-                {staticData.map((guitar) => (
+                {popularItems.map((guitar) => (
                     <div key={guitar.id} className="" onClick={() => handleClick(guitar.id)}>
                         <Card key={guitar.id} guitar={guitar} />
                     </div>
