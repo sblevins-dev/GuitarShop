@@ -5,14 +5,7 @@ import Image from 'next/image';
 import React, { useEffect } from 'react'
 import NextButton from './ui/NextButton';
 import { useRouter } from 'next/navigation';
-
-
-// export async function generateStaticParams() {
-//     // Simulating a fetch from an API or local data source
-//     return staticData.map(guitar => {
-//         productId: guitar.id.toString();
-//     })
-//   }
+import { generateStaticParams } from '@utils/generateStaticParams';
 
 export default function GuitarDetails({ params }: {
     params: { productId: number }
@@ -20,7 +13,7 @@ export default function GuitarDetails({ params }: {
 
     const router = useRouter();
 
-    const gui = staticData.find((product: { id: number }) => product.id == Number(params.productId));
+    const gui = staticData.find(product => product.id === Number(params.productId));
 
     useEffect(() => {
         if (!gui) {
@@ -40,7 +33,7 @@ export default function GuitarDetails({ params }: {
                     Electric Guitar
                 </h1>
                 <h1 className='font-bold text-2xl'>
-                    {gui?.title}
+                    {gui.title}
                 </h1>
                 {/* <p className='font-medium'>
                         {gui?.description}
@@ -54,17 +47,17 @@ export default function GuitarDetails({ params }: {
                 </p>
                 <div className='flex flex-col gap-2 justify-end'>
                     {
-                        gui?.salePrice &&
+                        gui.salePrice &&
                         <div className='text-right'>
                             <span className='font-semibold uppercase text-red-500 text-md pr-5'>was</span>
                             <span className='font-semibold text-xl text-red-500 line-through text-right font-serif'>
-                                ${gui?.salePrice}
+                                ${gui.salePrice}
                             </span>
                         </div>
 
                     }
                     <span className='font-semibold text-3xl text-right font-serif text-right max-sm:mb-5'>
-                        {gui?.salePrice && <span className='uppercase pr-5 text-lg'>now</span>} ${gui?.price}
+                        {gui.salePrice && <span className='uppercase pr-5 text-lg'>now</span>} ${gui.price}
                     </span>
 
                 </div>
@@ -86,7 +79,7 @@ export default function GuitarDetails({ params }: {
                     <button>
                         Previous
                     </button>
-                    <NextButton id={gui ? gui.id : 0} />
+                    <NextButton id={gui.id} />
                 </div>
                 <button type="button" className='bg-black text-white py-2 px-4 rounded-lg'>
                     Add to cart
@@ -95,3 +88,5 @@ export default function GuitarDetails({ params }: {
         </div>
     )
 }
+
+export { generateStaticParams }
