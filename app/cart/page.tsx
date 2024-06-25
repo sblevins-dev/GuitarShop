@@ -21,7 +21,7 @@ export default function Cart() {
 
     // Function to calculate the total price of items in the cart
     const calculateTotal = (): number => {
-        return cart.reduce((total: number, item: CartItem) => total + parseFloat(item.price) * item.quantity, 0);
+        return cart.reduce((total: number, item: CartItem) => total + parseFloat(item.price), 0);
     };
 
     return (

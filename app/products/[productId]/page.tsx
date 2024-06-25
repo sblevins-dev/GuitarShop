@@ -6,6 +6,7 @@ import React from 'react'
 import guitarImg from "@public/assets/images/guitar2.png"
 import NextButton from '@components/ui/NextButton'
 import { redirect } from 'next/navigation'
+import { useCart } from '@context/GlobalContext'
 
 export default function page({
     params

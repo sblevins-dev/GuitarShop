@@ -53,21 +53,21 @@ export default function Nav() {
         <button type="button" className="bg-black font-medium rounded-lg text-white px-2 py-0.5 transition-all duration-300 border hover:border-black hover:bg-white hover:text-black">
           Login
         </button>
-        <div className="h-max hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer relative">
-          {cart.length > 0 &&
-            <div className="absolute -top-2 -right-2 bg-black text-white w-[20px] h-[20px] rounded-full flex items-center justify-center text-xs">
-              {cart.length}
-            </div>
-          }
-          <Link href={'/cart'}>
+
+        <Link href={'/cart'}>
+          <div className="h-max hover:bg-gray-200 rounded-lg transition duration-300 p-2 cursor-pointer relative">
+            {cart.length > 0 &&
+              <div className="absolute -top-2 -right-2 bg-black text-white w-[20px] h-[20px] rounded-full flex items-center justify-center text-xs">
+                {cart.length}
+              </div>
+            }
             <Image
               src={cartIcon}
               alt="cart"
               className="w-auto h-[20px]"
             />
-          </Link>
-
-        </div>
+          </div>
+        </Link>
 
       </div>
 
