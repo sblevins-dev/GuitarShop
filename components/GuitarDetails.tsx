@@ -2,9 +2,17 @@
 
 import { staticData } from '@public/data/data';
 import Image from 'next/image';
-import React from 'react'
+import React, { useEffect } from 'react'
 import NextButton from './ui/NextButton';
 import { useRouter } from 'next/navigation';
+
+
+// export async function generateStaticParams() {
+//     // Simulating a fetch from an API or local data source
+//     return staticData.map(guitar => {
+//         productId: guitar.id.toString();
+//     })
+//   }
 
 export default function GuitarDetails({ params }: {
     params: { productId: number }
@@ -12,11 +20,18 @@ export default function GuitarDetails({ params }: {
 
     const router = useRouter();
 
-    const gui = staticData.find((product: { id: number }) => product.id == params.productId)
+    const gui = staticData.find((product: { id: number }) => product.id == Number(params.productId));
+
+    useEffect(() => {
+        if (!gui) {
+            router.push('/');
+        }
+    }, [gui, router])
 
     if (!gui) {
-        router.push('/');
+        return null;
     }
+
 
     return (
         <div className='  flex flex-col justify-between gap-24 max-sm:px-5 md:px-20 2xl:px-96 px-5'>
@@ -53,17 +68,17 @@ export default function GuitarDetails({ params }: {
                     </span>
 
                 </div>
-                    <div className='w-auto max-sm:w-full h-full max-h-[400px]'>
-                        {
-                    gui && gui.img &&
-                    <Image
-                        src={gui.img}
-                        alt={gui.title}
-                        className='w-full h-full object-contain'
-                    />
-                }
-                    </div>
-                
+                <div className='w-auto max-sm:w-full h-full max-h-[400px]'>
+                    {
+                        gui && gui.img &&
+                        <Image
+                            src={gui.img}
+                            alt={gui.title}
+                            className='w-full h-full object-contain'
+                        />
+                    }
+                </div>
+
 
             </div>
             <div className='w-full max-w-[1000px] self-center shadow-2xl bg-white flex justify-between items-center px-10 py-5 rounded-lg'>
