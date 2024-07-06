@@ -15,7 +15,7 @@ This Next.js application is an e-commerce site for a guitar shop. It allows user
 - Tailwind CSS: Utility-first CSS framework for styling.
 
 ### Installation and Setup
-- Clone the repository: git clone https://github.com/your/repository.git
+- Clone the repository: git clone https://github.com/sblevins-dev/GuitarShop.git
 - Install dependencies: npm install
 = Start the development server: npm run dev
 - Open your browser and navigate to http://localhost:3000 to view the application.
